@@ -1,14 +1,20 @@
 var rollButton = document.querySelector("#roll")
 var carolsText = document.querySelectorAll(".carols-text")
+var startInfo = document.querySelector(".start-info")
 let carolRandomizer = function() {
-    return Math.floor(Math.random() * carolsText.length + 1)
+    return Math.floor(Math.random() * (carolsText.length))
 }
 let carolsHidder = function() {
-    carolsText.style.display = "block";
+    for (i = 0; i < carolsText.length; i++) {
+        carolsText[i].style.display = "none";
+    }
+    startInfo.style.display = "none";
 }
 
 rollButton.addEventListener("click", (e) => {
     carolsHidder()
     let randomizedCarolNumber = carolRandomizer()
-    console.log(randomizedCarolNumber)
+    console.log("Numer wylosowanej kolędy: " + (randomizedCarolNumber + 1)+ `, ID: ${randomizedCarolNumber}`)
+    document.getElementById(`${randomizedCarolNumber}`).style.display = "block";
 })
+
