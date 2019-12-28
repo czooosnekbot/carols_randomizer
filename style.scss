@@ -2,10 +2,47 @@
     width: 160px !important;
 }
 
+.start-info {
+    h1 {
+        @media (max-width: 700px) {
+            font-size: 2rem;
+        }
+    }
+    h4 {
+        @media (max-width: 700px) {
+            font-size: 1.2rem;
+        }
+    }
+}
+
 .carols-text, .start-info {
     h1 {
         letter-spacing: .14rem;
     }
     text-align: center;
     margin-top: 1.6rem;
+    @media (max-width: 700px) {
+        padding-bottom: 65px;
+    }
+}
+
+.nav {
+    &-sticked {
+        @media (max-width: 700px) {
+            display: block;
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            background: white;
+            border-top: 1px solid black;
+            width: 100vw;
+            .btn {
+                margin: .5rem !important;
+            }
+            .git {
+                display: none;
+            }
+        }
+    }
+    
 }

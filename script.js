@@ -1,6 +1,7 @@
 var rollButton = document.querySelector("#roll")
 var carolsText = document.querySelectorAll(".carols-text")
 var startInfo = document.querySelector(".start-info")
+var navBar = document.querySelector(".nav")
 let carolRandomizer = function() {
     return Math.floor(Math.random() * (carolsText.length))
 }
@@ -14,7 +15,7 @@ let carolsHidder = function() {
 rollButton.addEventListener("click", (e) => {
     carolsHidder()
     let randomizedCarolNumber = carolRandomizer()
-    console.log("Numer wylosowanej kolędy: " + (randomizedCarolNumber + 1)+ `, ID: ${randomizedCarolNumber}`)
+    console.log("Numer wylosowanej kolędy: " + (randomizedCarolNumber + 1) + `, ID: ${randomizedCarolNumber}`)
     document.getElementById(`${randomizedCarolNumber}`).style.display = "block";
+    navBar.className = "nav-sticked"
 })
-

@@ -1,2 +1,2 @@
-.btn{width:160px !important}.carols-text,.start-info{text-align:center;margin-top:1.6rem}.carols-text h1,.start-info h1{letter-spacing:.14rem}
+.btn{width:160px !important}@media (max-width: 700px){.start-info h1{font-size:2rem}}@media (max-width: 700px){.start-info h4{font-size:1.2rem}}.carols-text,.start-info{text-align:center;margin-top:1.6rem}.carols-text h1,.start-info h1{letter-spacing:.14rem}@media (max-width: 700px){.carols-text,.start-info{padding-bottom:65px}}@media (max-width: 700px){.nav-sticked{display:block;position:fixed;bottom:0;right:0;background:white;border-top:1px solid black;width:100vw}.nav-sticked .btn{margin:.5rem !important}.nav-sticked .git{display:none}}
 /*# sourceMappingURL=style.css.map */
