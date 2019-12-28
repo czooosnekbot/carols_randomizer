@@ -17,5 +17,5 @@ rollButton.addEventListener("click", (e) => {
     let randomizedCarolNumber = carolRandomizer()
     console.log("Numer wylosowanej kolędy: " + (randomizedCarolNumber + 1) + `, ID: ${randomizedCarolNumber}`)
     document.getElementById(`${randomizedCarolNumber}`).style.display = "block";
-    navBar.className = "nav-sticked"
+    navBar.className = "nav-sticked d-flex flex-column"
 })
