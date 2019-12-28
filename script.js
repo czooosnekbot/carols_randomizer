@@ -21,12 +21,10 @@ let carolChanger = (e) => {
         document.getElementById(`${randomizedCarolNumber}`).style.display = "block";
         navBar.className = "nav-sticked d-flex flex-column"
         document.changedCarol = randomizedCarolNumber;
-        document.latestValues = [];
-        document.latestValues.push(randomizedCarolNumber)
-        lastCarolShower()
+        // lastCarolShower()
     })
 }
 carolChanger()
-let lastCarolShower = (e) => {
-    lastCarolTitleBar.innerHTML = document.querySelectorAll("h1")[document.latestValues[latestValues - 2] + 1].innerHTML
-}
+// let lastCarolShower = (e) => {
+//     lastCarolTitleBar.innerHTML = document.querySelectorAll("h1")[document.latestValues[latestValues - 2] + 1].innerHTML
+// }
