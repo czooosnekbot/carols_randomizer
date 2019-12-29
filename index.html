@@ -19,7 +19,6 @@
                         <h1>Aby rozpocząć</h1>
                         <h4>Użyj przycisku poniżej...</h4>
                     </div>
-                    <p id="last"></p>
                     <div id="0" style="display: none;" class="carols-text">
                         <h1>Wśród nocnej ciszy</h1>
                         <p>Wśród nocnej ciszy głos się rozchodzi:<br/>
@@ -240,9 +239,15 @@
                             in excelsis Deo!<br/></p>
                     </div>
                 </div>
-                <div class="nav d-flex flex-column">
-                    <button id="roll" class="btn btn-lg btn-primary mt-5">Losuj kolędę!</button>
-                    <a class="btn btn-lg btn-secondary mt-2 git" href="https://github.com/czooosnekbot/carols_randomizer" target="_blank"><i class="fab fa-github mr-1"></i> Repo</a>
+                <div class="nav">
+                    <div class="nav-buttons d-flex flex-column align-items-center">
+                        <button id="roll" class="btn btn-lg btn-primary mt-5">Losuj kolędę!</button>
+                        <a class="btn btn-lg btn-secondary mt-2 git" href="https://github.com/czooosnekbot/carols_randomizer" target="_blank"><i class="fab fa-github mr-1"></i> Repo</a>
+                    </div>
+                    <div class="last-roll d-flex flex-column align-items-center mt-3">
+                        <p id="last-label" class="m-0" style="display: none;">Poprzednio wylosowana:</p>
+                        <p class="m-0" id="last"></p>
+                    </div>
                 </div>
             </div>
             <div class="col-1 col-md-3"></div>
