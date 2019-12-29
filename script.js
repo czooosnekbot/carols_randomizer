@@ -6,7 +6,12 @@ var lastCarolLabel = document.querySelector("#last-label")
 var lastCarolTitleBar = document.querySelector("#last")
 document.lastValues = new Array()
 let carolRandomizer = (e) => {
-    return Math.floor(Math.random() * (carolsText.length))
+    let random = Math.floor(Math.random() * (carolsText.length))
+    if (random != document.lastValues[document.lastValues.length - 1]) {
+        return random
+    } else {
+        return carolRandomizer()
+    }
 }
 let carolsHidder = (e) => {
     for (i = 0; i < carolsText.length; i++) {
