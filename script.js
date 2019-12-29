@@ -3,7 +3,7 @@ var carolsText = document.querySelectorAll(".carols-text")
 var startInfo = document.querySelector(".start-info")
 var navBar = document.querySelector(".nav")
 var lastCarolTitleBar = document.querySelector("#last")
-var latestValues = [];
+document.lastValues = new Array()
 let carolRandomizer = (e) => {
     return Math.floor(Math.random() * (carolsText.length))
 }
@@ -17,14 +17,17 @@ let carolChanger = (e) => {
     rollButton.addEventListener("click", (e) => {
         carolsHidder()
         let randomizedCarolNumber = carolRandomizer()
-        console.log("Numer wylosowanej kolędy: " + (randomizedCarolNumber + 1) + `, ID: ${randomizedCarolNumber}`)
+        console.log("Numer wylosowanej kolędy: " + randomizedCarolNumber)
         document.getElementById(`${randomizedCarolNumber}`).style.display = "block";
         navBar.className = "nav-sticked d-flex flex-column"
         document.changedCarol = randomizedCarolNumber;
-        // lastCarolShower()
+        document.lastValues.push(document.changedCarol)
+        console.log("Historia losowania: " + document.lastValues)
+        console.log(document.lastValues[document.lastValues.length - 2])
+        latestCarolShower()
     })
 }
 carolChanger()
-// let lastCarolShower = (e) => {
-//     lastCarolTitleBar.innerHTML = document.querySelectorAll("h1")[document.latestValues[latestValues - 2] + 1].innerHTML
-// }
+let latestCarolShower = (e) => {
+    document.querySelector("#last").innerHTML = document.querySelectorAll("h1")[document.lastValues[document.lastValues.length - 2]].innerHTML
+}
