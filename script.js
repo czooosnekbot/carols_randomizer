@@ -7,7 +7,7 @@ var lastCarolTitleBar = document.querySelector("#last")
 document.lastValues = new Array()
 let carolRandomizer = (e) => {
     let random = Math.floor(Math.random() * (carolsText.length))
-    if (random != document.lastValues[document.lastValues.length - 1]) {
+    if (random != document.lastValues[document.lastValues.length - 1] & random != document.lastValues[document.lastValues.length - 2]) {
         return random
     } else {
         return carolRandomizer()
