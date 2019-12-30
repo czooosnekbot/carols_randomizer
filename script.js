@@ -1,13 +1,15 @@
-var startInfo = document.querySelector(".start-info")
-var navBar = document.querySelector(".nav")
-var rollButton = document.querySelector("#roll")
-var carolsText = document.querySelectorAll(".carols-text")
-var lastCarolLabel = document.querySelector("#last-label")
-var lastCarolTitleBar = document.querySelector("#last")
 document.lastValues = new Array()
+const startInfo = document.querySelector(".start-info")
+const navBar = document.querySelector(".nav")
+const rollButton = document.querySelector("#roll")
+const carolsText = document.querySelectorAll(".carols-text")
+const lastCarolLabel = document.querySelector("#last-label")
+const lastCarolTitleBar = document.querySelector("#last")
+const previousRandomValue1 = document.lastValues[document.lastValues.length - 1]
+const previousRandomValue2 = document.lastValues[document.lastValues.length - 2]
 let carolRandomizer = (e) => {
     let random = Math.floor(Math.random() * (carolsText.length))
-    if (random != document.lastValues[document.lastValues.length - 1] & random != document.lastValues[document.lastValues.length - 2]) {
+    if (random != previousRandomValue1 & random != previousRandomValue2) {
         return random
     } else {
         return carolRandomizer()
@@ -29,15 +31,14 @@ let carolChanger = (e) => {
         document.changedCarol = randomizedCarolNumber;
         document.lastValues.push(document.changedCarol)
         console.log("Historia losowania: " + document.lastValues)
-        console.log(document.lastValues[document.lastValues.length - 2])
         latestCarolShower()
     })
 }
 carolChanger()
 let latestCarolShower = (e) => {
-    if ((document.lastValues[document.lastValues.length - 2]) != undefined) {
+    if ((previousRandomValue2) != undefined) {
         lastCarolLabel.style.display = "block";
-        return document.querySelector("#last").innerHTML = document.querySelectorAll("h1")[(document.lastValues[document.lastValues.length - 2]) + 1].innerHTML
+        return document.querySelector("#last").innerHTML = document.querySelectorAll("h1")[(previousRandomValue2) + 1].innerHTML
     } else {
         return document.querySelector("#last").innerHTML = ""
     }
