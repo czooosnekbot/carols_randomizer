@@ -1,15 +1,13 @@
-document.lastValues = new Array()
 const startInfo = document.querySelector(".start-info")
 const navBar = document.querySelector(".nav")
 const rollButton = document.querySelector("#roll")
 const carolsText = document.querySelectorAll(".carols-text")
 const lastCarolLabel = document.querySelector("#last-label")
 const lastCarolTitleBar = document.querySelector("#last")
-const previousRandomValue1 = document.lastValues[document.lastValues.length - 1]
-const previousRandomValue2 = document.lastValues[document.lastValues.length - 2]
+document.lastValues = new Array()
 let carolRandomizer = (e) => {
     let random = Math.floor(Math.random() * (carolsText.length))
-    if (random != previousRandomValue1 & random != previousRandomValue2) {
+    if (random != document.lastValues[document.lastValues.length - 1] & random != document.lastValues[document.lastValues.length - 2]) {
         return random
     } else {
         return carolRandomizer()
@@ -36,9 +34,9 @@ let carolChanger = (e) => {
 }
 carolChanger()
 let latestCarolShower = (e) => {
-    if ((previousRandomValue2) != undefined) {
+    if ((document.lastValues[document.lastValues.length - 2]) != undefined) {
         lastCarolLabel.style.display = "block";
-        return document.querySelector("#last").innerHTML = document.querySelectorAll("h1")[(previousRandomValue2) + 1].innerHTML
+        return document.querySelector("#last").innerHTML = document.querySelectorAll("h1")[(document.lastValues[document.lastValues.length - 2]) + 1].innerHTML
     } else {
         return document.querySelector("#last").innerHTML = ""
     }
