@@ -6,8 +6,10 @@ const lastCarolLabel = document.querySelector("#last-label")
 const lastCarolTitleBar = document.querySelector("#last")
 document.lastValues = new Array()
 let carolRandomizer = (e) => {
+    const lastCarolValue1 = document.lastValues[document.lastValues.length - 1]
+    const lastCarolValue2 = document.lastValues[document.lastValues.length - 2]
     let random = Math.floor(Math.random() * (carolsText.length))
-    if (random != document.lastValues[document.lastValues.length - 1] & random != document.lastValues[document.lastValues.length - 2]) {
+    if (random != lastCarolValue1 & random != lastCarolValue2) {
         return random
     } else {
         return carolRandomizer()
