@@ -1,6 +1,7 @@
 const startInfo = document.querySelector(".start-info")
 const navBar = document.querySelector(".nav")
 const rollButton = document.querySelector("#roll")
+const startRollingFormCheckbox = document.querySelector("#WNCcheckbox")
 const carolsText = document.querySelectorAll(".carols-text")
 const lastCarolLabel = document.querySelector("#last-label")
 const lastCarolTitleBar = document.querySelector("#last")
@@ -9,7 +10,9 @@ let carolRandomizer = (e) => {
     const lastCarolValue1 = document.lastValues[document.lastValues.length - 1]
     const lastCarolValue2 = document.lastValues[document.lastValues.length - 2]
     let random = Math.floor(Math.random() * (carolsText.length))
-    if (random != lastCarolValue1 & random != lastCarolValue2) {
+    if (startRollingFormCheckbox.checked & document.lastValues.length === 0) {
+        return 0
+    } else if (random != lastCarolValue1 & random != lastCarolValue2) {
         return random
     } else {
         return carolRandomizer()
