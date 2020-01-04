@@ -64,6 +64,12 @@
             
         }
         @media (min-width: 701px) {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 400px;
+            height: 250px;
+            border-left: 1px solid;
             #last-label {
                 font-size: 1.2rem;
             }
