@@ -42,7 +42,7 @@ const carolChanger = () => {
         console.log("Numer wylosowanej kolędy: " + randomizedCarolNumber)
         lastValues.push(randomizedCarolNumber)
         console.log("Historia losowania: " + lastValues)
-        document.getElementById(`${randomizedCarolNumber}`).style.display = "block";
+        carolsText[randomizedCarolNumber].style.display = "block";
         navMobileSticker()
         latestCarolShower()
     })
