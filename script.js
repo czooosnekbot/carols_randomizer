@@ -7,16 +7,17 @@ const lastCarolLabel = document.querySelector("#last-label")
 const lastCarolTitleBar = document.querySelector("#last")
 const lastValues = []
 const carolRandomizer = () => {
-    const lastCarolValue1 = lastValues[lastValues.length - 1]
-    const lastCarolValue2 = lastValues[lastValues.length - 2]
     const random = Math.floor(Math.random() * (carolsText.length))
     if (startRollingFormCheckbox.checked & lastValues.length === 0) {
         return 0
-    } else if (random != lastCarolValue1 & random != lastCarolValue2) {
+    } else if (random != getPreviousValue(1) & random != getPreviousValue(2)) {
         return random
     } else {
         return carolRandomizer()
     }
+}
+const getPreviousValue = (queueNumber) => {
+    return lastValues[lastValues.length - queueNumber]
 }
 const carolsHidder = () => {
     for (i = 0; i < carolsText.length; i++) {
@@ -25,9 +26,9 @@ const carolsHidder = () => {
     startInfo.style.display = "none";
 }
 const latestCarolShower = () => {
-    if ((lastValues[lastValues.length - 2]) != undefined) {
+    if (getPreviousValue(2) != undefined) {
         lastCarolLabel.style.display = "block";
-        document.querySelector("#last").innerHTML = document.querySelectorAll("h1")[(lastValues[lastValues.length - 2]) + 1].innerHTML
+        document.querySelector("#last").innerHTML = document.querySelectorAll("h1")[(getPreviousValue(2)) + 1].innerHTML
     } else {
         document.querySelector("#last").innerHTML = ""
     }
