@@ -3,8 +3,8 @@ const navBar = document.querySelector(".nav")
 const rollButton = document.querySelector("#roll")
 const startRollingFormCheckbox = document.querySelector("#WNCcheckbox")
 const carolsText = document.querySelectorAll(".carols-text")
-const lastCarolLabel = document.querySelector("#last-label")
-const lastCarolTitleBar = document.querySelector("#last")
+const previousCarolLabel = document.querySelector("#last-label")
+const previousCarolTitleBar = document.querySelector("#last")
 const lastValues = []
 const carolRandomizer = () => {
     const random = Math.floor(Math.random() * (carolsText.length))
@@ -25,12 +25,12 @@ const carolsHidder = () => {
     }
     startInfo.style.display = "none";
 }
-const latestCarolShower = () => {
+const previousCarolShower = () => {
     if (getPreviousValue(2) != undefined) {
-        lastCarolLabel.style.display = "block";
-        document.querySelector("#last").innerHTML = document.querySelectorAll("h1")[(getPreviousValue(2)) + 1].innerHTML
+        previousCarolLabel.style.display = "block";
+        previousCarolTitleBar.innerHTML = document.querySelectorAll("h1")[(getPreviousValue(2)) + 1].innerHTML
     } else {
-        document.querySelector("#last").innerHTML = ""
+        previousCarolTitleBar.innerHTML = ""
     }
 }
 const navMobileSticker = () => {
@@ -45,7 +45,7 @@ const carolChanger = () => {
         console.log("Historia losowania: " + lastValues)
         carolsText[randomizedCarolNumber].style.display = "block";
         navMobileSticker()
-        latestCarolShower()
+        previousCarolShower()
     })
 }
 carolChanger()
