@@ -3,12 +3,14 @@ const navBar = document.querySelector(".nav")
 const rollButton = document.querySelector("#roll")
 const startRollingFormCheckbox = document.querySelector("#WNCcheckbox")
 const carolsText = document.querySelectorAll(".carols-text")
-const previousCarolLabel = document.querySelector("#last-label")
-const previousCarolTitleBar = document.querySelector("#last")
-const lastValues = []
+const previous = {
+    carolLabel: document.querySelector("#last-label"),
+    carolTitle: document.querySelector("#last"),
+    Values: [],
+}
 const carolRandomizer = () => {
     const random = Math.floor(Math.random() * (carolsText.length))
-    if (startRollingFormCheckbox.checked & lastValues.length === 0) {
+    if (startRollingFormCheckbox.checked & previous.Values.length === 0) {
         return 0
     } else if (random != getPreviousValue(1) & random != getPreviousValue(2)) {
         return random
@@ -17,7 +19,7 @@ const carolRandomizer = () => {
     }
 }
 const getPreviousValue = (queueNumber) => {
-    return lastValues[lastValues.length - queueNumber]
+    return previous.Values[previous.Values.length - queueNumber]
 }
 const carolsHidder = () => {
     for (i = 0; i < carolsText.length; i++) {
@@ -27,10 +29,10 @@ const carolsHidder = () => {
 }
 const previousCarolShower = () => {
     if (getPreviousValue(2) != undefined) {
-        previousCarolLabel.style.display = "block";
-        previousCarolTitleBar.innerHTML = document.querySelectorAll("h1")[(getPreviousValue(2)) + 1].innerHTML
+        previous.carolLabel.style.display = "block";
+        previous.carolTitle.innerHTML = document.querySelectorAll("h1")[(getPreviousValue(2)) + 1].innerHTML
     } else {
-        previousCarolTitleBar.innerHTML = ""
+        previous.carolTitle.innerHTML = ""
     }
 }
 const navMobileSticker = () => {
@@ -41,8 +43,8 @@ const carolChanger = () => {
         carolsHidder()
         const randomizedCarolNumber = carolRandomizer()
         console.log("Numer wylosowanej kolędy: " + randomizedCarolNumber)
-        lastValues.push(randomizedCarolNumber)
-        console.log("Historia losowania: " + lastValues)
+        previous.Values.push(randomizedCarolNumber)
+        console.log("Historia losowania: " + previous.Values)
         carolsText[randomizedCarolNumber].style.display = "block";
         navMobileSticker()
         previousCarolShower()
